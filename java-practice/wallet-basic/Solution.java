@@ -8,11 +8,7 @@ Run with assertions ON:   javac Solution.java; if ($?) { java -ea Solution }
 
 Part 1) testBalance fails. There is a bug in Wallet.getBalance(). Find and fix it.
 
-Part 2) Implement Wallet.getTotalByType(TxType type):
-        the sum of the amounts of all transactions of that type.
-        No transactions of that type -> 0.
-
-Part 3) Implement Wallet.getAverageDeposit():
+Part 2) Implement Wallet.getAverageDeposit():
         the average amount of DEPOSIT transactions, as a double.
         No deposits -> 0.0.
 
@@ -54,11 +50,6 @@ class Wallet {
     }
 
     // Part 2 - TODO
-    public int getTotalByType(TxType type) {
-        return 0;
-    }
-
-    // Part 3 - TODO
     public double getAverageDeposit() {
         return 0.0;
     }
@@ -67,7 +58,6 @@ class Wallet {
 public class Solution {
     public static void main(String[] args) {
         testBalance();
-        testTotalByType();
         testAverageDeposit();
         System.out.println("All tests pass!");
     }
@@ -85,14 +75,6 @@ public class Solution {
         assert new Wallet().getBalance() == 0 : "empty wallet balance should be 0";
         int b = sampleWallet().getBalance();
         assert b == 121 : "balance should be 121, was " + b;
-    }
-
-    static void testTotalByType() {
-        System.out.println("Running testTotalByType");
-        Wallet w = sampleWallet();
-        assert w.getTotalByType(TxType.DEPOSIT) == 151 : "DEPOSIT total should be 151";
-        assert w.getTotalByType(TxType.WITHDRAWAL) == 30 : "WITHDRAWAL total should be 30";
-        assert new Wallet().getTotalByType(TxType.DEPOSIT) == 0 : "empty wallet total should be 0";
     }
 
     static void testAverageDeposit() {
