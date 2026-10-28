@@ -1,0 +1,5 @@
+# Streams + groupingBy: expenses (4 small cases)
+
+    javac Solution.java; if ($?) { java Solution }
+
+Write drills 1-3 with groupingBy. Drill 4 is written but has a bug: fix it.
